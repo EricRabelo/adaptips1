@@ -7,10 +7,16 @@
     <title>Movies | Adpti</title>
 </head>
 <body>
-    @foreach ($movies as $movie)
-        <h4>{{ $movie->title }}</h4>
-        <img src="{{ $movie->image }}" alt="Imagem">
-        <p>{{ $movie->country->name }}</p>
-    @endforeach
+    <div>
+        @foreach ($movies as $movie)
+            <h2> Titulo: {{ $movie->title }}</h2>
+            <h4> - Gênero: {{ $movie->genre }}</h4>
+            <h4> - Sinopse: {{ $movie->synopsis }}</h4>
+            <h4> - Avaliação: {{ $movie->rating }}</h4>
+            <h4> - País: {{ $movie->country->name }}</h4>
+            <br>
+        @endforeach
+    </div>
+    
 </body>
 </html>
