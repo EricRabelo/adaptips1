@@ -26,24 +26,10 @@ class MovieFactory extends Factory
             'title' => $this->faker->name(),
             'genre' => $this->faker->name(),
             'release' => $this->faker->dateTimeThisYear(),
-            'country' => $this->faker->name(),
+            'country_id' => $this->faker->unique()->numberBetween(1,10),
             'synopsis' => $this->faker->text(),
             'rating' => "9.8",
             'image' => ''
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
     }
 }

@@ -10,6 +10,7 @@
     @foreach ($movies as $movie)
         <h4>{{ $movie->title }}</h4>
         <img src="{{ $movie->image }}" alt="Imagem">
+        <p>{{ $movie->country->name }}</p>
     @endforeach
 </body>
 </html>
