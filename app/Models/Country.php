@@ -12,6 +12,6 @@ class Country extends Model
     protected $fillable = ['name'];
 
     public function movie() {
-        return $this->hasOne(Movie::class,'country_id');
+        return $this->hasOne(Movie::class);
     }
 }
