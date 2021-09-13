@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 </head>
+
 <body>
     <nav class = "nav-container" style="background-color: #a3d145">
+        @yield('nav-content')
         <h1 class="title">Eric Rabelo</h1>
         <div class="buttons-nav" align="right">
             <a class="link-home" href="{{route('movie.index')}}">Inicio</a>

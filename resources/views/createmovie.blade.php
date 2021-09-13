@@ -33,7 +33,7 @@
         <input class="input-movie" id="input-rating" type="text" name="rating" placeholder="9.2" required>
         
         <br><br>
-        <label for="input-synopsis">Sinopse</label>
+        <label for="textarea-synopsis">Sinopse</label>
         <textarea class="textarea-movie" name="synopsis" id="textarea-synopsis" placeholder="Escreva a sinopse do filme" cols="30" rows="10"></textarea>
         
         <br><br>
