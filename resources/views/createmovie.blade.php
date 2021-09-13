@@ -1,27 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Filme | Adapti PS</title>
-</head>
-<body>
-    <form id="form-create" action="{{ route('movie.store') }}" method="POST" enctype="multipart/form-data">
+@extends('templates')
+
+@section('title','Adicionar Filme')
+
+@section('content')
+
+    <form class="form-movie-create" id="form-movie-create" action="{{ route('movie.store') }}" method="POST" enctype="multipart/form-data">
+        
         @csrf
-        <input type="text" name="title" placeholder="Titulo" required>
-        <input type="text" name="genre" placeholder="Genero" required>
-        <select name="country_id" id="country_id">
+
+        <br><br>
+        <label for="input-title">Titulo do filme</label>
+        <input class="input-movie" id="input-title" type="text" name="title" placeholder="Titulo" required>
+        
+        <br><br>
+        <label for="input-genre">Gênero</label>
+        <input class="input-movie" id="input-genre" type="text" name="genre" placeholder="Ação / comédia / drama" required>
+        
+        <br><br>
+        <label for="country_id">País</label>
+        <select class="select-county" name="country_id" id="country_id" required>>
             @foreach($countries as $country)
-                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                <option class="option-country" value="{{ $country->id }}">{{ $country->name }}</option>
             @endforeach
         </select>
-        <input type="text" name="release" placeholder="Lançamento" required>
-        <input type="text" name="rating" placeholder="Nota" required>
-        <textarea name="synopsis" id="synopsis" cols="30" rows="10"></textarea>
-        <input type="file" name="image" accept="image/*" required>
-        <button type="submit">Salvar</button>
+        
+        <br><br>
+        <label for="input-release">Lançamento</label>
+        <input class="input-movie" id="input-release" type="text" name="release" placeholder="dd/mm/aaaa" required>
+        
+        <br><br>
+        <label for="input-rating">Avaliação</label>
+        <input class="input-movie" id="input-rating" type="text" name="rating" placeholder="9.2" required>
+        
+        <br><br>
+        <label for="input-synopsis">Sinopse</label>
+        <textarea class="textarea-movie" name="synopsis" id="textarea-synopsis" placeholder="Escreva a sinopse do filme" cols="30" rows="10"></textarea>
+        
+        <br><br>
+        <input class="input-movie" id="input-image" type="file" name="image" accept="image/*" required>
+        
+        <br><br>
+        <button class="button-movie" type="submit">Salvar Filme</button>
+
     </form>
-    <a href="{{ route('movie.index') }}">Voltar</a>
-</body>
-</html>
+    
+    <a class="button-home" href="{{ route('movie.index') }}"><button>Voltar</button></a>
+    
+@endsection
