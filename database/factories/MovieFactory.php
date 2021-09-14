@@ -29,7 +29,7 @@ class MovieFactory extends Factory
             'country_id' => $this->faker->unique()->numberBetween(1,10),
             'synopsis' => $this->faker->text(),
             'rating' => "9.8",
-            'image' => $this->faker->image()
+            'image' => $this->faker->imageUrl(640, 480, 'animals', true)
         ];
     }
 }
