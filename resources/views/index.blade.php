@@ -18,7 +18,7 @@
             
         @if(count($movies)!=0)
             @if($search)
-                <h2 class="title-search">Buscando por filmes que contenham: {{$search}}</h2>
+                <h2 class="index-msg">Buscando por filmes que contenham: {{$search}}</h2>
             @endif
             <div class="all-cards">
                 @foreach ($movies as $movie)
@@ -51,9 +51,9 @@
             </div>
         @else
             @if($search)
-                <p class="p-search-result">Não foi possivel encontrar nenhum filme com: {{$search}}! <br><a class="link-home" href={{route('movie.index')}}>Exibir todos</a></p>
+                <p class="index-msg">Não foi possivel encontrar nenhum filme com: {{$search}} <br><br><a class="link-home" href={{route('movie.index')}}>Exibir todos</a></p>
             @else
-                <p class="p-movie-not-found">Não há filmes cadastrados</p>
+                <p class="index-msg">Não há filmes cadastrados</p>
             @endif  
 
         @endif

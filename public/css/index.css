@@ -47,6 +47,14 @@
     color:#294c6a;
 }
 
+.index-msg{
+    padding-top: 30px;
+    padding-left: 30px;
+    text-align: left;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
 
 /* Card style */
 .all-cards{
