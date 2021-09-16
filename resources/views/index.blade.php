@@ -3,49 +3,52 @@
 @section('title', 'AdaptiPS | Filmes')
 
 @section('content')
+    @section('search-bar')
+        <div class="cabecalho">
+            <form class="form-search" action={{route('movie.index')}} method="GET">
+                <input type="text" name="search" placeholder="Procure por um filme">
+                <button type="submit"><img src="/icons/pesquisa-de-lupa.png" alt=""></button>
+            </form>
+        </div>
+    @endsection
 
-    <center><h1>Catálogo de Filmes do AdaptiPS</h1></center>
-    
-    <form class="form-search" action={{route('movie.index')}} method="GET">
-        <input class = "input-search" type="text" name="search" placeholder="Procure por um filme">
-        <button class = "button-search" type="submit">Pesquisar</button>
-    </form>
-
-    <hr>
-
-    <div class="div-verification">
-
+        <div class="div-logo">
+            <a class="logo"><strong>Catálogo de Filmes do AdaptiPS</strong></a>
+        </div>
+            
         @if(count($movies)!=0)
-
             @if($search)
                 <h2 class="title-search">Buscando por filmes que contenham: {{$search}}</h2>
             @endif
-
-            @foreach ($movies as $movie)
-                <div class="card-movie">
-                    <h3>{{ $movie->title }}</h3>
-                    <div class="buttons-container">
-                        <a class="button-edit-movie-content" href="{{ route('movie.edit', $movie->id) }}">Editar</a>
-                        
-                        <form class="form-button-delete-movie" action="{{ route('movie.destroy', $movie->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="button-delete-movie"type="submit">Excluir</button>
-                        </form> 
+            <div class="all-cards">
+                @foreach ($movies as $movie)
+                    <div class="card-movie">
+                        <div class="topCard">
+                            <h2 class="title">{{$movie->title}}</h2>
+                        </div>
+                        <div class="mediaCard">
+                            <img src="/storage/{{ $movie->image }}" alt="Imagem" width="80" height="100"/>
+                        </div>
+                        <div class="buttons-container">
+                            <a class="form-button" href="{{ route('movie.edit', $movie->id) }}">Editar</a>
+                            
+                            <form action="{{ route('movie.destroy', $movie->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="form-button" type="submit">Excluir</button>
+                            </form> 
+                        </div>
+                        <div class="info-container">
+                            <p class="specify-rating"><img src="https://image.flaticon.com/icons/png/512/1828/1828884.png" width="20" height="20" alt="Nota:"/>   <strong>{{ $movie->rating }}</strong></p>
+                            <p class="specify genre"><strong>Gênero:</strong> {{ $movie->genre }}</p>
+                            <p class="specify country"><strong>País:</strong> {{ $movie->country->name }}</p>
+                            <p class="specify release"><strong>Lançamento:</strong> {{ $movie->release }}</p>
+                            <p class="specify synopsis"><strong>Sinopse:</strong> {{ $movie->synopsis }}</p>
+                            
+                        </div>
                     </div>
-
-                    <img class="image-movie-content" src="/storage/{{ $movie->image }}" alt="Imagem" width="80" height="100"/>
-
-                    <div class="info-container">
-                        <p class="specify genre">{{ $movie->genre }}</p>
-                        <p class="specify country"><strong>País:</strong> {{ $movie->country->name }}</p>
-                        <p class="specify release"><strong>Lançamento:</strong> {{ $movie->release }}</p>
-                        <p class="specify rating"><strong>Nota:</strong> {{ $movie->rating }}</p>
-                        <p class="specify synopsis"><strong>Sinopse:</strong> {{ $movie->synopsis }}</p>
-                    </div>
-                </div>
-                
-            @endforeach
+                @endforeach
+            </div>
         @else
             @if($search)
                 <p class="p-search-result">Não foi possivel encontrar nenhum filme com: {{$search}}! <br><a class="link-home" href={{route('movie.index')}}>Exibir todos</a></p>
@@ -55,6 +58,7 @@
 
         @endif
 
-    </div>
+
+
 
 @endsection
