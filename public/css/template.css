@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     border: 0;
-    transition: 0.3s all ease-in;
+    text-decoration: none;
 }
 
 html{
@@ -26,13 +26,15 @@ html{
 
 .header-container a.link:hover{
     opacity: 0.7;
+    color: gray;
+    transition: 0.3s all ease-in;
 }
 
 
 /* Nav style */
 .nav-container{
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -52,8 +54,8 @@ html{
 
 .nav-container img{
     left: 0;
-    width:100px;
-    height:8vh;
+    width:80px;
+    height:7vh;
 }
 
 .nav-list{
@@ -69,8 +71,10 @@ html{
 
 /* Main style */
 .main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     z-index: 3;
-    align-items: center;
     width: 100%;
     height: 100%;
     padding-top: 15vh;
@@ -80,6 +84,7 @@ html{
 
 /* footer style */
 .footer-container{
+    z-index: 10;
     bottom: 0;
     flex-shrink: 0;
     background: #294c6a;
@@ -108,13 +113,12 @@ html{
     letter-spacing: 4px;
 }
 
-.footer-container img{
-    width:50px;
-    height:50px;
+.footer-container .adapti-links{
+    display: flex;
+    letter-spacing: 10px;
+    font-size: 25px;
 }
 
-.footer-container .adapti-links img:hover {
-    align-items: center;
-    width:70px;
-    height:70px;
+.footer-container .adapti-links a:hover {
+    transform: scale(1.3);
 }
