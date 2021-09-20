@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\Country;
-use Illuminate\Http\Request;
-
+use Illuminate\Http\Requests;
+use App\Http\Requests\MovieCreate;
+use App\Http\Requests\MovieEdit;
 use Illuminate\Support\Facades\Storage;
 
 class MovieController extends Controller
@@ -45,7 +46,7 @@ class MovieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MovieCreate $request)
     {
         $data = $request->all();
 
@@ -88,7 +89,7 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MovieEdit $request, $id)
     {
         $data = $request->all();
         $movie = Movie::find($id);
