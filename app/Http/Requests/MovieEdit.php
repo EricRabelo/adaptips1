@@ -26,7 +26,7 @@ class MovieEdit extends FormRequest
         return [
             'title' => 'required|max:255|string',
             'genre' => 'required|max:255|string',
-            'release' => 'required|max:255|date',
+            'release' => 'required|max:255|string',
             'synopsis' => 'required|max:1000|string',
             'rating' => 'required|max:255|string',
             'image' => 'image',
