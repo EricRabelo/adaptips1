@@ -175,7 +175,6 @@
 
 .buttons-container .button-icon:hover{
     transform: scale(1.3);
-    color:#294c6a;
     transition: 0.1s all ease-in;
 }
 
